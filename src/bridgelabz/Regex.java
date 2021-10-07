@@ -53,7 +53,7 @@ public class Regex {
 
     public static boolean isValidPwd(String pwd)
     {
-        String password = "^[A-Za-z]{8,}$";
+        String password = "^(?=.*?[A-Z])(?=.*?[a-z]).{8,}$";
         Pattern pattern = Pattern.compile(password);
         if (pwd ==null) {
             return false;
