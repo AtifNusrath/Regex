@@ -1,7 +1,6 @@
 package bridgelabz;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,8 +11,8 @@ public class Regex {
         if (firstName == null) {
             return false;
         }
-        Matcher matcher = fnme.matcher(firstName);
-        return matcher.matches();
+        Matcher match = fnme.matcher(firstName);
+        return match.matches();
     }
 
     public static boolean isValidLastName(String lastName) {
@@ -35,8 +34,8 @@ public class Regex {
         }
 
         for (String email : emails) {
-            Matcher matcher = pattern.matcher(email);
-            System.out.println(email + " : " + matcher.matches());
+            Matcher match = pattern.matcher(email);
+            System.out.println(email + " : " + match.matches());
         }
         return true;
     }
@@ -48,8 +47,19 @@ public class Regex {
             return false;
         }
 
-        Matcher matcher = mob.matcher(mobileNo);
-        return matcher.matches();
+        Matcher match = mob.matcher(mobileNo);
+        return match.matches();
+    }
+
+    public static boolean isValidPwd(String pwd)
+    {
+        String password = "^[A-Za-z]{8,}$";
+        Pattern pattern = Pattern.compile(password);
+        if (pwd ==null) {
+            return false;
+        }
+        Matcher match = pattern.matcher(pwd);
+        return match.matches();
     }
 
     public static void main(String[] args) {
@@ -75,6 +85,9 @@ public class Regex {
 
         String mobileNo = "91 9874563210";
         System.out.println("IS the above mobile number valid? " + isValidNo(mobileNo));
+
+        String pwd = "Adminpassword";
+        System.out.println("IS the above password valid? " + isValidPwd(pwd));
 
     }
 }
