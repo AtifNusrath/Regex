@@ -27,7 +27,7 @@ public class Regex {
 
     public static boolean isValidEmail(ArrayList<String> emails) {
 
-        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
         Pattern pattern = Pattern.compile(regex);
         if (emails == null) {
             return false;
@@ -71,16 +71,28 @@ public class Regex {
         System.out.println("IS the above last name valid? " + isValidLastName(lastName));
 
         ArrayList<String> emails = new ArrayList<>();
-        emails.add("user@domain.com");
-        emails.add("user@domain.co.in");
-        emails.add("user1@domain.com");
-        emails.add("user.name@domain.com");
-        emails.add("user#@domain.co.in");
-        emails.add("user@domaincom");
+        emails.add("abc@yahoo.com");
+        emails.add("abc-100@yahoo.com");
+        emails.add("abc.100@yahoo.com");
+        emails.add("abc111@abc.com");
+        emails.add("abc-100@abc.net");
+        emails.add("abc.100@abc.com.au");
+        emails.add("abc@1.com");
+        emails.add("abc@gmail.com.com");
+        emails.add("abc+100@gmail.com");
 
-        emails.add("user#domain.com");
-        emails.add("@yahoo.com");
-
+        emails.add("abc");
+        emails.add("abc@.com.my");
+        emails.add("abc123@gmail.a");
+        emails.add("abc123@.com");
+        emails.add("abc123@.com.com");
+        emails.add(".abc@abc.com");
+        emails.add("abc()*@gmail.com");
+        emails.add("abc@%*.com");
+        emails.add("abc...2002@gmail.com");
+        emails.add("abc.@gmail.com");
+        emails.add("abc@abc@gmail.com");
+        emails.add("abc@gmail.com.1a");
         isValidEmail(emails);
 
         String mobileNo = "91 9874563210";
