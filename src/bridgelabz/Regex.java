@@ -53,7 +53,7 @@ public class Regex {
 
     public static boolean isValidPwd(String pwd)
     {
-        String password = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*d).{8,}$";
+        String password = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*d)(?=.*[@#$%^&-+=()]).{8,}$";
         Pattern pattern = Pattern.compile(password);
         if (pwd ==null) {
             return false;
@@ -86,7 +86,7 @@ public class Regex {
         String mobileNo = "91 9874563210";
         System.out.println("IS the above mobile number valid? " + isValidNo(mobileNo));
 
-        String pwd = "admin07Pwd";
+        String pwd = "admin07@Pwd";
         System.out.println("IS the above password valid? " + isValidPwd(pwd));
 
     }
